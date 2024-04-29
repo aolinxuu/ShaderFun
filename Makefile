@@ -1,9 +1,9 @@
-ASSEMBLY:= Engine
+ASSEMBLY:= src
 BUILD_DIR:= bin
 
 COMPILER_FLAGS := -std=c++2a
 INCLUDE_FLAGS:= -I$(VULKAN_SDK)/include
-LINKER_FLAGS:= -L$(VULKAN_SDK)/lib -lMoltenVK -o VulkanTest
+LINKER_FLAGS:= -L$(VULKAN_SDK)/lib -lMoltenVK -o test
 
 SRC_FILES:= $(shell find $(ASSEMBLY) -type f \( -name "*.cpp" \))
 
