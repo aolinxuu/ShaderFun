@@ -1,3 +1,1 @@
 # ShaderFun
-# ShaderFun
-# vulkanShader
