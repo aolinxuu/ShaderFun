@@ -2,6 +2,10 @@
 #include <vulkan/vulkan.hpp>
 #include <iostream>
 
+bool isDeviceSuitable(VkPhysicalDevice device) {
+    QueueFamilyIndices indices = findQueueFamilies(device);
+    return indices.isComplete();
+}
 
 VkPhysicalDevice getPhysicalDevice(VkInstance instance) {
     VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
@@ -10,7 +14,7 @@ VkPhysicalDevice getPhysicalDevice(VkInstance instance) {
     vkEnumeratePhysicalDevices(instance, &deviceCount, nullptr);
     if (deviceCount == 0) {
         std::cout << "Failed to find GPUs with Vulkan support!" << std::endl;
-        return;
+        return 0;
     }
 
     std::vector<VkPhysicalDevice> devices(deviceCount);
@@ -27,10 +31,3 @@ VkPhysicalDevice getPhysicalDevice(VkInstance instance) {
     }
     return physicalDevice;
 }
-
-bool isDeviceSuitable(VkPhysicalDevice device) {
-    QueueFamilyIndices indices = findQueueFamilies(device);
-    return indices.isComplete();
-}
-
-

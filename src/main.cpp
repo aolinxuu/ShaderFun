@@ -52,4 +52,3 @@ int main() {
     vkDestroyInstance(instance, nullptr);
     return 0;
 }
-
